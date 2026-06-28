@@ -7,31 +7,56 @@
             font-size: 40px; 
             font-family:  Roboto; 
             font-weight: normal; 
-            color: rgb(60, 102, 199);
+            color: rgb(100, 100, 100);
             text-align: center; 
         }
+
+        h2 {
+            font-family: Roboto;
+            font-size: 32px;
+            font-weight: normal;
+            color: rgb(100, 100, 100);
+            text-align: center;
+        }
+
+        p {
+            font-family: Roboto;
+            color: rgb(80, 80, 80);
+        }
+
+        #banner {
+            width: 100%;
+            height: 450px;
+            object-fit: cover;
+        }
+        
+        #container {
+            max-width: 720px;
+            margin: 0 auto 0 auto;
+        }
+
     </style>
 </head>
 
 <body>
-    <h1>Company Careers</h1>
-    <img src="{{ url_for ('static', filename='banner.jpg')}}"
-         alt="Company Banner"
-         style = "width:100%; height:450px; object-fit:cover;"> 
+    <div id="continer">
+        <h1>Company Careers</h1>
+        <img id='banner' src="{{ url_for ('static', filename='banner.jpg')}}"
+            alt="Company Banner"> 
 
 
-    <h2>Welcome to out careers page</h2>
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras nec elit non dolor vehicula tempus. Proin posuere libero sit amet odio pellentesque, eget venenatis ipsum vulputate. Sed non blandit augue. 
-        Donec feugiat arcu vel turpis posuere lacinia. Maecenas fermentum nibh ut libero consectetur congue. Praesent efficitur lectus non orci condimentum eleifend. Curabitur vel laoreet enim. 
-        Sed gravida justo quis elit efficitur, eget dapibus tortor maximus. Proin pulvinar egestas est, a faucibus sapien finibus quis. Sed sed est non tellus pretium bibendum fringilla at purus. 
-        Donec at metus dapibus, iaculis sapien tristique, commodo turpis. Mauris sit amet condimentum ante, eget porttitor dolor. Integer pellentesque sagittis nisl, tempor gravida nulla efficitur vel. 
-        In egestas suscipit porttitor. Etiam laoreet ex et posuere porta. Vestibulum tempus tempus viverra. Pellentesque non malesuada eros. Vestibulum molestie nunc massa, id mollis mauris ultricies a. Aliquam magna purus, vulputate ut sem ac, ornare rutrum ex. Donec consectetur condimentum mollis. 
-        Pellentesque mi arcu, dictum quis justo id, commodo ornare arcu.</p>
-    
-    <h2> Open Positions </h2>
-    <p> TODO - Show the jobs here </p>
-    <button> Contact Us </button>
-
+        <h2>Welcome to our careers page</h2>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras nec elit non dolor vehicula tempus. Proin posuere libero sit amet odio pellentesque, eget venenatis ipsum vulputate. Sed non blandit augue. 
+            Donec feugiat arcu vel turpis posuere lacinia. Maecenas fermentum nibh ut libero consectetur congue. Praesent efficitur lectus non orci condimentum eleifend. Curabitur vel laoreet enim. 
+            Sed gravida justo quis elit efficitur, eget dapibus tortor maximus. Proin pulvinar egestas est, a faucibus sapien finibus quis. Sed sed est non tellus pretium bibendum fringilla at purus. 
+            Donec at metus dapibus, iaculis sapien tristique, commodo turpis. Mauris sit amet condimentum ante, eget porttitor dolor. Integer pellentesque sagittis nisl, tempor gravida nulla efficitur vel. 
+            In egestas suscipit porttitor. Etiam laoreet ex et posuere porta. Vestibulum tempus tempus viverra. Pellentesque non malesuada eros. Vestibulum molestie nunc massa, id mollis mauris ultricies a. Aliquam magna purus, vulputate ut sem ac, ornare rutrum ex. Donec consectetur condimentum mollis. 
+            Pellentesque mi arcu, dictum quis justo id, commodo ornare arcu.</p>
+        
+        <h2> Open Positions </h2>
+        <p> TODO - Show the jobs here </p>
+        <button> Contact Us </button>
+    </div> 
 </body>
 
 </html>
