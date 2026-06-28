@@ -9,19 +9,21 @@
             #banner {
                 height: 360px; 
                 width: 100%;
+                margin-bottom: 16px;
             }
         </style>
 </head>
 
 <body>
     {% include 'nav.html' %}
+    <img class="img-fluid" id='banner' src="{{ url_for ('static', filename='banner.jpg')}}"
+            alt="Company Banner"> 
     <div class="container">
         <h1 class="text-center mt-2 mb-4">{{company_name}} Careers</h1>
-        <img class="img-fluid" id='banner' src="{{ url_for ('static', filename='banner.jpg')}}"
-            alt="Company Banner"> 
 
-        <h2 class="text-center mt-2 mb-4">Welcome to our careers page</h2>
         <p>
+        <div class="row" style="margin-bottom: 16px;">
+            <div class="col-6"> 
         <p class="lead">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras nec elit non dolor vehicula tempus. Proin posuere libero sit amet odio pellentesque, eget venenatis ipsum vulputate. Sed non blandit augue. 
             Donec feugiat arcu vel turpis posuere lacinia. Maecenas fermentum nibh ut libero consectetur congue. Praesent efficitur lectus non orci condimentum eleifend. Curabitur vel laoreet enim. 
             Sed gravida justo quis elit efficitur, eget dapibus tortor maximus. Proin pulvinar egestas est, a faucibus sapien finibus quis. Sed sed est non tellus pretium bibendum fringilla at purus. 
@@ -29,6 +31,12 @@
             In egestas suscipit porttitor. Etiam laoreet ex et posuere porta. Vestibulum tempus tempus viverra. Pellentesque non malesuada eros. Vestibulum molestie nunc massa, id mollis mauris ultricies a. Aliquam magna purus, vulputate ut sem ac, ornare rutrum ex. Donec consectetur condimentum mollis. 
             Pellentesque mi arcu, dictum quis justo id, commodo ornare arcu.</p>
         </p>
+            </div>
+            <div class="col-6">
+        <img src="static/people.jpg" style= "height: 320px; border-radius: 4px;">
+            </div>
+        </div>
+
         
         <h2 class="text-center mt-2 mb-4"> Job Openings </h2>
         
@@ -41,11 +49,10 @@
 
         <div class="text-center">
         <button class="btn btn-primary btn-lg"> Contact Us </button>
-            <p class="mt-4"> Copyright 2026</p>
         </div>
     
     </div> 
-    {$ include 'footer.html' %}
+    {% include 'footer.html' %}
 </body>
 
 </html>
