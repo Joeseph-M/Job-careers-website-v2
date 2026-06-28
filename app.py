@@ -13,7 +13,7 @@ JOBS = [
         'id': 2,
         'title': 'Data Scientist',
         'location': 'Singapore',
-        'salary': '$7,500' 
+        'salary': '$8,500' 
     },
     {
         'id': 3,
@@ -32,10 +32,9 @@ JOBS = [
 def hello_world():
     return render_template("home.html", jobs=JOBS, company_name="Company")
 
-@app.route("/jobs")
+@app.route("/api/jobs")
 def list_jobs():
     return jsonify(JOBS) 
-
 
 
 if __name__=="__main__":
