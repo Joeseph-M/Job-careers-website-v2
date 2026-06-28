@@ -15,7 +15,7 @@
 
 <body>
     <div class="container">
-        <h1 class="text-center mt-2 mb-4">Company Careers</h1>
+        <h1 class="text-center mt-2 mb-4">{{company_name}} Careers</h1>
         <img class="img-fluid" id='banner' src="{{ url_for ('static', filename='banner.jpg')}}"
             alt="Company Banner"> 
 
@@ -31,13 +31,16 @@
         
         <h2 class="text-center mt-2 mb-4"> Open Positions </h2>
         
-        <p>
-        <p> TODO - Show the jobs here </p>
-        </p>
+       
+        <div> 
+            {% for job in jobs %} 
+                <div>{{job['title']}}</div>
+            {% endfor %}
+        </div>
 
-        <div>
-        <button> Contact Us </button>
-            <p> Copyright 2026</p>
+        <div class="text-center">
+        <button class="btn btn-primary btn-lg"> Contact Us </button>
+            <p class="mt-4"> Copyright 2026</p>
         </div>
     
     </div> 
