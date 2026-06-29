@@ -9,6 +9,7 @@ def load_jobs():
     cursor.execute("SELECT * FROM jobs")
     jobs = cursor.fetchall()
 
+    print("jobs from database:")
     print(jobs)
 
     cursor.close()
