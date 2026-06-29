@@ -1,13 +1,13 @@
-from flask import Flask, render_template, jsonify
+from flask import Flask, render_template
 from config_db import get_db_connection
 
 app = Flask(__name__)
 
-def load_jobs():
+def load_jobs(id):
     db = get_db_connection()
     cursor = db.cursor(dictionary=True)
-    cursor.execute("SELECT * FROM jobs")
-    jobs = cursor.fetchall()
+    cursor.execute("SELECT * FROM jobs WHERE id = %s", (id,))
+    jobs = cursor.fetchone()
 
     cursor.close()
     db.close()
@@ -25,7 +25,11 @@ def home():
 
 @app.route("/job/<id>")
 def show_job(id):
-    return f"Job ID = {id}"
+    job = load_jobs(id)
+    return render_template(
+        'jobpage.html',
+        job=job
+    )
 
 if __name__=="__main__":
     app.run(host="0.0.0.0", debug=True)
