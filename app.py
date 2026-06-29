@@ -1,41 +1,29 @@
-from flask import Flask, render_template, jsonify  
+from flask import Flask, render_template
+from config_db import get_db_connection
 
 app = Flask(__name__)
 
-JOBS = [
-    {
-        'id': 1,
-        'title': 'Data Analyst',
-        'location': 'Singapore',
-        'salary': '$3,500'
-    },
-    {
-        'id': 2,
-        'title': 'Data Scientist',
-        'location': 'Singapore',
-        'salary': '$8,500' 
-    },
-    {
-        'id': 3,
-        'title': 'Data Engineer',
-        'location': 'Remote',
-        'salary': '$5,500'
-    },
-    {
-        'id': 4,
-        'title': 'Backend Engineer',
-        'location': 'North Carolina, USA',
-    }
-]
+def load_jobs():
+    db = get_db_connection()
+    cursor = db.cursor(dictionary=True)
+    cursor.execute("SELECT * FROM jobs")
+    jobs = cursor.fetchall()
+
+    print(jobs)
+
+    cursor.close()
+    db.close()
+
+    return jobs
 
 @app.route("/")
-def hello_world():
-    return render_template("home.html", jobs=JOBS, company_name="Company")
-
-@app.route("/api/jobs")
-def list_jobs():
-    return jsonify(JOBS) 
-
+def home():
+    jobs = load_jobs()
+    return render_template(
+        "home.html",
+        jobs=jobs,
+        company_name="Company Careers"
+    )
 
 if __name__=="__main__":
     app.run(host="0.0.0.0", debug=True)
